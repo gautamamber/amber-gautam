@@ -1,0 +1,292 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+#include<dos.h>
+#include<stdlib.h>
+void cname();
+void logo();
+void about();
+void tag();
+void facility();
+void details();
+void payment();
+void information();
+int pin , cvv;
+long int card;
+char name[20];
+char name[20];
+int age;
+int mem;
+
+void main()
+{
+int gd=DETECT,gm,i;
+initgraph(&gd,&gm,"C:\\Turboc3\\BGI");
+cname();
+logo();
+getch();
+cleardevice();
+cname();
+about();
+getch();
+cleardevice();
+cname();
+tag();
+facility();
+getch();
+cleardevice();
+information();
+getch();
+}
+void cname()
+{
+settextstyle(0,EMPTY_FILL,2);
+setcolor(RED);
+outtextxy(80,200,"Life begins at the end of your");
+outtextxy(200,230,"comfort zone");
+settextstyle(0,EMPTY_FILL,5);
+setcolor(YELLOW);
+outtextxy(180,50,"GAUTAM");
+outtextxy(50,120,"TOUR N TRAVELS");
+rectangle(150,30,450,100);
+rectangle(30,100,620,180);
+}
+void logo()
+{
+
+setcolor(WHITE);
+circle(50,380,20);
+circle(170,380,20);
+// inside
+line(0,380,25,380);
+line(195,380,250,380);
+line(75,380,145,380);
+//front
+line(250,380,250,340);
+//back
+line(0,380,0,340);
+//roof
+line(0,340,40,310);
+line(40,310,160,310);
+line(160,310,250,340);
+//window 1
+line(10,340,40,340);
+line(40,320,40,340);
+line(10,340,40,320);
+//window 2
+line(45,320,45,340);
+line(155,320,155,340);
+line(45,340,155,340);
+line(45,320,155,320);
+//window 3
+line(160,320,160,340);
+line(160,340,230,340);
+line(160,320,230,340);
+//bus
+line(330,270,590,270);
+line(330,270,330,380);
+line(590,270,590,380);
+line(330,380,355,380);
+line(405,380,515,380);
+line(565,380,590,380);
+rectangle(350,280,390,320);
+rectangle(410,280,450,320);
+rectangle(470,280,510,320);
+rectangle(530,280,570,320);
+circle(380,380,20);
+circle(540,380,20);
+setcolor(BLUE);
+settextstyle(0,EMPTY_FILL,1);
+outtextxy(10,440,"Enter to continue...");
+}
+void about()
+{
+settextstyle(0,EMPTY_FILL,1.5);
+setcolor(WHITE);
+outtextxy(10,300,"Contact:");
+line(10,310,70,310);
+outtextxy(10,330,"Name: Amber gautam");
+outtextxy(10,350,"Contact No. 8059360629");
+outtextxy(10,370,"Address: Office no. 52 sec 5 ");
+outtextxy(10,390,"Rewari (Haryana)");
+outtextxy(10,410,"E-mail: ambergautam1@gmail.com");
+//BRANCES
+outtextxy(450,300,"Branches:");
+line(450,310,520,310);
+outtextxy(450,330,"Rewari:   01274-253060");
+outtextxy(450,350,"Gurgaon:  0124-235478");
+outtextxy(450,370,"Delhi:    011-6347593");
+outtextxy(450,390,"Jaipur:   099-6573839");
+outtextxy(450,410,"Mathura:  0124-235478");
+setcolor(BLUE);
+outtextxy(10,440,"Enter to continue...");
+}
+void tag()
+{
+settextstyle(0,EMPTY_FILL,1);
+setcolor(GREEN);
+outtextxy(20,270,"India's leading travel brand                     Best price guarantee");
+}
+void facility()
+{
+settextstyle(0,EMPTY_FILL,2);
+setcolor(RED);
+outtextxy(200,300,"OUR FACITIES");
+settextstyle(0,EMPTY_FILL,1);
+setcolor(BLUE);
+outtextxy(120,350,"Vichels");
+line(120,360,175,360);
+setcolor(WHITE);
+outtextxy(50,370,"Scorpio");
+outtextxy(50,390,"Qualis");
+outtextxy(50,410,"Bolero");
+outtextxy(50,430,"Traveller");
+outtextxy(50,450,"Verna");
+outtextxy(50,470,"Volvo bus");
+outtextxy(170,370,"Wagonr");
+outtextxy(170,390,"Tata Sumo");
+outtextxy(170,410,"Tavera");
+outtextxy(170,430,"Innova");
+outtextxy(170,450,"Ertiga");
+outtextxy(170,470,"Eeco");
+setcolor(BLUE);
+outtextxy(370,350,"Cities");
+line(370,360,415,360);
+setcolor(WHITE);
+outtextxy(320,370,"Goa");
+outtextxy(320,390,"Mumbai");
+outtextxy(320,410,"Delhi");
+outtextxy(320,430,"Haridwar");
+outtextxy(320,450,"Shimla");
+outtextxy(320,470,"Manali");
+outtextxy(440,370,"Jammu & Kashmir");
+outtextxy(440,390,"Kerala");
+outtextxy(440,410,"Gujrat");
+outtextxy(440,430,"Dehradun");
+outtextxy(440,450,"Shirdi");
+outtextxy(440,470,"Jaipur");
+}
+void details()
+{
+char name[20];
+long int contact;
+int age;
+int hno;
+int mem;
+char mail[30];
+char street[30];
+char city[20];
+char state[20];
+char vechile[20];
+char place[20];
+FILE *fp;
+fp=fopen("tourntravels.txt","a");
+if (fp==NULL)
+{
+printf("FILE DOESNT EXIST");
+}
+else
+printf("\n COMPLETE YOUR PERSONAL DETAILS... ");
+printf("\n NAME => ");
+scanf("%s",name);
+fprintf(fp,"NAME = %s \n ",name);
+printf("\n AGE => ");
+scanf("%d",age);
+fprintf(fp,"AGE = %d \n ",age);
+printf("\n TOTAL NO OF MEMBER => ");
+scanf("%d",mem);
+fprintf(fp,"NO OF MEMBER = %d \n ",mem);
+printf("\n CONTACT NO => ");
+scanf("%d",contact);
+fprintf(fp,"CONTACT NO. = %d \n ",contact);
+printf("\n MAIL-ID => ");
+scanf("%s",mail);
+fprintf(fp,"MAIL-ID = %s \n",mail);
+printf("\n HOUSE NO => ");
+scanf("%d",hno);
+fprintf(fp,"HNO = %d \n",hno);
+printf("\n STREET NAME => ");
+scanf("%s",street);
+fprintf(fp,"STREET NAME = %s \n ",street);
+printf("\n CITY => ");
+scanf("%s",city);
+fprintf(fp,"CITY = %s \n ",city);
+printf(" \n STATE => ");
+scanf("%s",state);
+fprintf(fp,"STATE = %s \n ",state);
+printf("\n VECHILE => ");
+scanf("%s",vechile);
+fprintf(fp,"VECHILE = %s \n",vechile);
+printf("\n PLACE => ");
+scanf("%s",place);
+fprintf(fp,"PLACE = %s \n",place);
+printf("\n YOUR DETAILS ARE PERMANENTLY SAVED");
+fclose(fp);
+}
+void payment()
+{
+FILE *fp;
+fp=fopen("tourntravpay.txt","a");
+if (fp==NULL)
+{
+printf("FILE DOESNT EXIST");
+}
+else
+{
+printf("\n NAME => ");
+scanf("%s",name);
+fprintf(fp,"NAME = %s \n ",name);
+printf("\n AGE => ");
+scanf("%d",age);
+fprintf(fp,"AGE = %d \n ",age);
+printf("\n TOTAL NO OF MEMBER => ");
+scanf("%d",mem);
+fprintf(fp,"NO OF MEMBER = %d \n ",mem);
+printf("\n CARD NO => ");
+scanf("%d",card);
+fprintf(fp,"CARD NO. = %s \n",card);
+printf("\n CVV => ");
+scanf("%d",cvv);
+fprintf(fp,"CVV = %d \n",cvv);
+printf(" \n PIN => ");
+scanf("%d",pin);
+fprintf(fp,"PIN = %d \n",pin);
+printf("\n TRANSACTION IS BEING PROCEED , PLEASE WAIT... ");
+printf(".");
+delay(50);
+printf(".");
+delay(50);
+printf(".");
+delay(50);
+printf("\n TRANSACTION COMPLETED... ");
+delay(50);
+printf("\n THANK YOU... ");
+fclose(fp);
+}
+}
+void information()
+{
+int a;
+char b;
+do
+{
+printf("\n 1. ENTER DETAILS ");
+printf("\n 2. PAYMENT ");
+printf("\n 3. TERMS AND CONDITIONS ");
+scanf("%d",&a);
+switch(a)
+{
+case 1:
+details();
+break;
+case 2:
+payment();
+break;
+default:
+printf("\n invalid choice");
+}
+printf("\n YOU WANT TO CONTINUE... ");
+scanf("%s",&b);
+}
+while(b=='y'||b=='Y');
+}
