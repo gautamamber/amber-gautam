@@ -1,13 +1,22 @@
-#include<iostream.h>
+#include<stdio.h>
 #include<conio.h>
 #include<graphics.h>
 #include<dos.h>
+void rocket();
+void text();
+int gd=DETECT,gm,i,j,k;
 void main()
 {
-int gd=DETECT,gm,i,j,k;
-initgraph(&gd,&gm,"C:\\Turboc3\\BGI");
-//planets
+text();
+getch();
+cleardevice();
+rocket();
+getch();
+}
 
+void text()
+{
+initgraph(&gd,&gm,"C:\\Turboc3\\BGI");
 settextstyle(0,EMPTY_FILL,1);
 setcolor(YELLOW);
 outtextxy(50,50,"I");
@@ -45,8 +54,10 @@ outtextxy(50,420,"SO... COUNTDOWN IS BEGIN");
 delay(150);
 outtextxy(50,450,"ENTER TO CONTINUE");
 delay(150);
-getch();
-cleardevice();
+}
+
+void rocket()
+{
 setcolor(BLUE);
  //earth
     for(i=30;i<=400;i++)
@@ -105,3 +116,4 @@ outtextxy(50,200,"MISSION");
 outtextxy(50,300,"SUCCESSFUL");
 getch();
 }
+
